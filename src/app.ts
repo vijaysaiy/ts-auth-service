@@ -5,6 +5,8 @@ import authRouter from './routes/auth';
 
 const app = express();
 
+app.use(express.json());
+
 app.get('/', (req, res) => {
   res.send('Welcome to auth-service');
   //   next(err); //  if we pass anything to next function it is considered as error

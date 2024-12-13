@@ -10,9 +10,13 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  url      = "postgresql://postgres:root@localhost:5432/auth-service-test"
 }
 
-model User{
-  id Int @id @default(autoincrement())
+model User {
+  id        Int    @id @default(autoincrement())
+  firstName String
+  lastName  String
+  email     String
+  password  String
 }
