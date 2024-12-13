@@ -11,7 +11,9 @@
     "lint:fix": "eslint . --fix",
     "build": "tsc",
     "prepare": "husky",
-    "test": "jest --watch --runInBand"
+    "test": "jest --watch --runInBand",
+    "build:dev": "docker build -t auth-service:dev -f docker/dev/DockerFile .",
+    "docker:dev": "docker run --rm -it -v $(pwd):/usr/src/app -v /usr/src/app/node_modules --env-file $(pwd)/.env -p 5501:5501 -e NODE_ENV=dev auth-service:dev"
   },
   "devDependencies": {
     "@eslint/js": "^9.16.0",
